@@ -1,0 +1,42 @@
+.title {
+    margin-bottom: 2rem;
+}
+
+.form {
+    background: var(--card);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    max-width: 800px;
+}
+
+.group {
+    margin-bottom: 1.5rem;
+}
+
+.group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.group input,
+.group textarea {
+    width: 100%;
+    padding: 10px;
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--foreground);
+    font-family: inherit;
+}
+
+.submitBtn {
+    padding: 12px 24px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}

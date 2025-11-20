@@ -1,0 +1,130 @@
+.section {
+    padding: 100px 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem;
+}
+
+.sectionTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(to right, #fff, #aaa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.viewAll {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--secondary);
+    font-weight: 500;
+    transition: gap 0.3s ease;
+}
+
+.viewAll:hover {
+    gap: 12px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+/* About Section */
+.aboutSection {
+    padding: 120px 20px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(112, 0, 255, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+    text-align: center;
+}
+
+.aboutContent {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.aboutText {
+    font-size: 1.25rem;
+    color: var(--muted);
+    margin: 2rem 0;
+    line-height: 1.8;
+}
+
+.primaryBtn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(112, 0, 255, 0.3);
+}
+
+.primaryBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 40px rgba(112, 0, 255, 0.5);
+}
+
+/* Blog Grid */
+.blogGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.blogCard {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 2rem;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.blogCard:hover {
+    border-color: var(--secondary);
+    transform: translateY(-5px);
+}
+
+.blogDate {
+    font-size: 0.85rem;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.blogTitle {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--foreground);
+}
+
+.blogExcerpt {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+@media screen and (max-width: 768px) {
+    .sectionTitle {
+        font-size: 2rem;
+    }
+
+    .grid,
+    .blogGrid {
+        grid-template-columns: 1fr;
+    }
+}

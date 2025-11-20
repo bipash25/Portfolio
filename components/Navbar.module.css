@@ -1,0 +1,111 @@
+.navbar {
+    background: rgba(3, 0, 20, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 24px;
+}
+
+.logo {
+    color: var(--foreground);
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: -1px;
+    background: linear-gradient(to right, #fff, #ccc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dot {
+    color: var(--secondary);
+    -webkit-text-fill-color: var(--secondary);
+}
+
+.navMenu {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    gap: 2rem;
+}
+
+.navItem {
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.navLink {
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+}
+
+.navLink:hover {
+    color: var(--foreground);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.mobileIcon {
+    display: none;
+    color: var(--foreground);
+}
+
+@media screen and (max-width: 960px) {
+    .navMenu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: -100%;
+        opacity: 0;
+        transition: all 0.5s ease;
+        background: rgba(3, 0, 20, 0.95);
+        backdrop-filter: blur(20px);
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .navMenu.active {
+        left: 0;
+        opacity: 1;
+        z-index: 1;
+    }
+
+    .navLink {
+        font-size: 1.5rem;
+    }
+
+    .mobileIcon {
+        display: block;
+        font-size: 1.8rem;
+        cursor: pointer;
+        z-index: 2;
+    }
+}

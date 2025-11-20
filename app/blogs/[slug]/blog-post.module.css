@@ -1,0 +1,50 @@
+.main {
+    padding: 4rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: 80vh;
+}
+
+.article {
+    background: var(--card);
+    padding: 3rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: var(--foreground);
+}
+
+.content p {
+    margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .article {
+        padding: 1.5rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+}
