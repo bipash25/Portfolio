@@ -1,39 +1,133 @@
 .container {
-    height: 80vh;
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 20px;
+    justify-content: center;
+    background: #000;
+    color: var(--foreground);
+    overflow: hidden;
+    position: relative;
 }
 
-.title {
-    font-size: 6rem;
-    font-weight: 800;
-    background: linear-gradient(to right, var(--primary), var(--accent));
+.content {
+    text-align: center;
+    z-index: 1;
+    padding: 2rem;
+}
+
+.errorCode {
+    font-size: 10rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 1rem;
+    background: linear-gradient(to bottom, var(--primary), transparent);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 50px rgba(112, 0, 255, 0.3);
+}
+
+.title {
+    font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: var(--foreground);
 }
 
-.message {
-    font-size: 1.5rem;
+.description {
+    font-size: 1.2rem;
     color: var(--muted);
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.btn {
-    padding: 12px 30px;
+.homeBtn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
     background: var(--primary);
     color: white;
     border-radius: 50px;
-    text-decoration: none;
     font-weight: 600;
-    transition: transform 0.2s ease;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.btn:hover {
+.homeBtn:hover {
+    background: var(--primary-glow);
     transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(112, 0, 255, 0.4);
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+.star:nth-child(1) {
+    top: 20%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.star:nth-child(2) {
+    top: 70%;
+    left: 80%;
+    animation-delay: 1s;
+}
+
+.star:nth-child(3) {
+    top: 40%;
+    left: 60%;
+    animation-delay: 2s;
+}
+
+.star:nth-child(4) {
+    top: 80%;
+    left: 30%;
+    animation-delay: 0.5s;
+}
+
+.star:nth-child(5) {
+    top: 10%;
+    left: 90%;
+    animation-delay: 1.5s;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+@media (max-width: 768px) {
+    .errorCode {
+        font-size: 6rem;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
 }

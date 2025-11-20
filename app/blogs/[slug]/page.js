@@ -7,7 +7,8 @@ import { FaArrowLeft } from 'react-icons/fa';
 
 export async function generateMetadata({ params }) {
     await dbConnect();
-    const blog = await Blog.findOne({ slug: params.slug });
+    const { slug } = await params;
+    const blog = await Blog.findOne({ slug });
     if (!blog) return { title: 'Blog Not Found' };
     return {
         title: `${blog.title} | Biprodeep Nath`,
@@ -22,8 +23,8 @@ async function getBlog(slug) {
 }
 
 export default async function BlogPost({ params }) {
-
-    const blog = await getBlog(params.slug);
+    const { slug } = await params;
+    const blog = await getBlog(slug);
 
     if (!blog) {
         notFound();

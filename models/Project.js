@@ -20,6 +20,17 @@ const ProjectSchema = new mongoose.Schema({
     techStack: {
         type: [String],
     },
+    githubId: {
+        type: Number,
+        unique: true,
+        sparse: true, // Allows null/undefined for custom projects
+    },
+    language: {
+        type: String,
+    },
+    topics: {
+        type: [String],
+    },
     stars: {
         type: Number,
         default: 0,
@@ -35,7 +46,19 @@ const ProjectSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    views: {
+        type: Number,
+        default: 0,
+    },
+    likes: {
+        type: Number,
+        default: 0,
+    },
     createdAt: {
+        type: Date,
+        default: Date.now,
+    },
+    updatedAt: {
         type: Date,
         default: Date.now,
     },

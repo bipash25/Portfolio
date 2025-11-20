@@ -1,6 +1,6 @@
 import dbConnect from '@/lib/db';
 import Project from '@/models/Project';
-import ProjectCard from '@/components/ProjectCard';
+import ProjectsGrid from '@/components/ProjectsGrid';
 import styles from './projects.module.css';
 
 export const metadata = {
@@ -37,11 +37,7 @@ export default async function Projects() {
                     <p>No projects found. They might be syncing from GitHub...</p>
                 </div>
             ) : (
-                <div className={styles.grid}>
-                    {projects.map((project) => (
-                        <ProjectCard key={project._id} project={project} />
-                    ))}
-                </div>
+                <ProjectsGrid projects={projects} />
             )}
         </main>
     );

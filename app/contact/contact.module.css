@@ -1,3 +1,49 @@
+.main {
+    min-height: 100vh;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    padding: 80px 20px 60px;
+    text-align: center;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #fff, #aaa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 1.2rem;
+}
+
+.container {
+    display: flex;
+    gap: 4rem;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 20px 100px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 400px;
+}
+
 .infoItem {
     background: rgba(255, 255, 255, 0.03);
     padding: 30px;
@@ -84,18 +130,18 @@
     outline: none;
     border-color: var(--primary);
     background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 0 0 4px rgba(112, 0, 255, 0.1);
+    box-shadow: 0 0 20px rgba(112, 0, 255, 0.1);
 }
 
 .submitBtn {
     width: 100%;
-    padding: 18px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    padding: 16px;
+    background: var(--primary);
     color: white;
     border: none;
     border-radius: 12px;
+    font-size: 1rem;
     font-weight: 700;
-    font-size: 1.1rem;
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
@@ -103,9 +149,9 @@
 }
 
 .submitBtn:hover {
+    background: var(--primary-glow);
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(112, 0, 255, 0.3);
-    filter: brightness(1.1);
 }
 
 .submitBtn:disabled {
@@ -117,7 +163,7 @@
     .container {
         flex-direction: column;
         align-items: center;
-        padding-top: 120px;
+        padding-top: 40px;
     }
 
     .info {

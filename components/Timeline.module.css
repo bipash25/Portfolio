@@ -1,83 +1,122 @@
 .timeline {
     position: relative;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 40px 0;
 }
 
-.timeline::after {
-    content: '';
+.line {
     position: absolute;
-    width: 2px;
-    background: rgba(255, 255, 255, 0.1);
     top: 0;
     bottom: 0;
     left: 50%;
-    margin-left: -1px;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--primary), transparent);
+    transform: translateX(-50%);
 }
 
 .container {
     padding: 10px 40px;
     position: relative;
-    background-color: inherit;
     width: 50%;
+    box-sizing: border-box;
 }
 
 .left {
     left: 0;
+    text-align: right;
 }
 
 .right {
     left: 50%;
+    text-align: left;
 }
 
 .content {
     padding: 20px 30px;
-    background: var(--card-bg);
+    background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--card-border);
-    position: relative;
     border-radius: 12px;
+    position: relative;
     transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
 }
 
 .content:hover {
+    transform: translateY(-5px);
     border-color: var(--primary);
-    box-shadow: 0 0 20px rgba(112, 0, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
-.year {
-    font-size: 0.9rem;
+.dateBadge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--primary-glow);
     color: var(--primary);
+    border-radius: 20px;
+    font-size: 0.85rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
-    display: block;
+    margin-bottom: 10px;
+    border: 1px solid var(--primary);
 }
 
 .title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
     color: var(--foreground);
 }
 
-.desc {
-    font-size: 0.95rem;
+.description {
     color: var(--muted);
     line-height: 1.6;
 }
 
-@media screen and (max-width: 600px) {
-    .timeline::after {
-        left: 31px;
+.dot {
+    position: absolute;
+    top: 24px;
+    width: 16px;
+    height: 16px;
+    background: var(--background);
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.left .dot {
+    right: -49px;
+}
+
+.right .dot {
+    left: -49px;
+}
+
+.container:hover .dot {
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+}
+
+@media screen and (max-width: 768px) {
+    .line {
+        left: 30px;
     }
 
     .container {
         width: 100%;
         padding-left: 70px;
-        padding-right: 25px;
+        padding-right: 20px;
     }
 
+    .left,
     .right {
-        left: 0%;
+        left: 0;
+        text-align: left;
+    }
+
+    .left .dot,
+    .right .dot {
+        left: -47px;
+        right: auto;
     }
 }

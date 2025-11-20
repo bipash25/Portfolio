@@ -7,14 +7,20 @@ import styles from './ProjectCard.module.css';
 const ProjectCard = ({ project }) => {
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            layout
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
             whileHover={{ y: -5 }}
             className={styles.card}
         >
             <div className={styles.header}>
-                <h3 className={styles.title}>{project.name}</h3>
+                <div className={styles.titleGroup}>
+                    <h3 className={styles.title}>{project.name}</h3>
+                    {project.language && (
+                        <span className={styles.languageBadge}>{project.language}</span>
+                    )}
+                </div>
                 <div className={styles.links}>
                     {project.githubUrl && (
                         <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
@@ -31,21 +37,23 @@ const ProjectCard = ({ project }) => {
 
             <p className={styles.description}>{project.description}</p>
 
-            <div className={styles.stats}>
-                <div className={styles.stat}>
-                    <FaStar className={styles.starIcon} />
-                    <span>{project.stars}</span>
+            <div className={styles.footer}>
+                <div className={styles.stats}>
+                    <div className={styles.stat} title="Stars">
+                        <FaStar className={styles.starIcon} />
+                        <span>{project.stars}</span>
+                    </div>
+                    <div className={styles.stat} title="Forks">
+                        <FaCodeBranch className={styles.forkIcon} />
+                        <span>{project.forks}</span>
+                    </div>
                 </div>
-                <div className={styles.stat}>
-                    <FaCodeBranch className={styles.forkIcon} />
-                    <span>{project.forks}</span>
-                </div>
-            </div>
 
-            <div className={styles.techStack}>
-                {project.techStack && project.techStack.map((tech, index) => (
-                    <span key={index} className={styles.tech}>{tech}</span>
-                ))}
+                <div className={styles.techStack}>
+                    {project.topics && project.topics.slice(0, 3).map((topic, index) => (
+                        <span key={index} className={styles.tech}>{topic}</span>
+                    ))}
+                </div>
             </div>
         </motion.div>
     );
