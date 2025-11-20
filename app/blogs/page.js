@@ -1,7 +1,7 @@
 import dbConnect from '@/lib/db';
 import Blog from '@/models/Blog';
-import Link from 'next/link';
 import styles from './blogs.module.css';
+import BlogList from '@/components/BlogList';
 
 export const metadata = {
     title: 'Blogs | Biprodeep Nath',
@@ -30,24 +30,7 @@ export default async function Blogs() {
                 <p className={styles.subtitle}>Sharing what I learn along the way.</p>
             </section>
 
-            {blogs.length === 0 ? (
-                <div className={styles.emptyState}>
-                    <p>No blogs published yet. Stay tuned!</p>
-                </div>
-            ) : (
-                <div className={styles.grid}>
-                    {blogs.map((blog) => (
-                        <Link href={`/blogs/${blog.slug}`} key={blog._id} className={styles.card}>
-                            <h2 className={styles.blogTitle}>{blog.title}</h2>
-                            <p className={styles.excerpt}>{blog.content.substring(0, 150)}...</p>
-                            <div className={styles.meta}>
-                                <span>{new Date(blog.createdAt).toLocaleDateString()}</span>
-                                <span className={styles.tags}>{blog.tags.join(', ')}</span>
-                            </div>
-                        </Link>
-                    ))}
-                </div>
-            )}
+            <BlogList initialBlogs={blogs} />
         </main>
     );
 }

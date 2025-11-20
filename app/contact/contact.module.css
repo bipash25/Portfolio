@@ -1,118 +1,141 @@
-.container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 100px 20px 60px;
-    gap: 40px;
-}
-
-.title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    background: linear-gradient(to right, #fff, #aaa);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.subtitle {
-    color: var(--muted);
-    font-size: 1.2rem;
-    margin-bottom: 3rem;
-    text-align: center;
-    max-width: 500px;
-}
-
-.info {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 20px;
-    width: 100%;
-}
-
 .infoItem {
     background: rgba(255, 255, 255, 0.03);
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: left;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    min-width: 250px;
-    flex: 1;
-    max-width: 300px;
+    transition: all 0.3s ease;
+}
+
+.infoItem:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--primary);
+    transform: translateY(-5px);
 }
 
 .icon {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.infoItem h3 {
+    font-size: 1.5rem;
     margin-bottom: 10px;
+    color: var(--foreground);
+}
+
+.infoItem p,
+.infoItem a {
+    color: var(--muted);
+    font-size: 1rem;
+    margin-bottom: 5px;
+    text-decoration: none;
+    display: block;
+    transition: color 0.2s;
+}
+
+.infoItem a:hover {
+    color: var(--primary);
 }
 
 .form {
+    flex: 1.5;
     width: 100%;
     max-width: 600px;
     background: rgba(10, 10, 10, 0.6);
-    padding: 2rem;
-    border-radius: 16px;
+    padding: 3rem;
+    border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(12px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-.group {
-    margin-bottom: 1.5rem;
+.formGroup {
+    margin-bottom: 2rem;
+    position: relative;
 }
 
-.group label {
+.formGroup label {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
     color: var(--foreground);
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.group input,
-.group textarea {
+.formGroup input,
+.formGroup textarea {
     width: 100%;
-    padding: 12px;
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
     color: var(--foreground);
     font-family: inherit;
-    transition: border-color 0.3s ease;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
-.group input:focus,
-.group textarea:focus {
+.formGroup input:focus,
+.formGroup textarea:focus {
     outline: none;
     border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 0 4px rgba(112, 0, 255, 0.1);
 }
 
 .submitBtn {
     width: 100%;
-    padding: 14px;
-    background: var(--primary);
+    padding: 18px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
     border: none;
-    border-radius: 8px;
-    font-weight: 600;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .submitBtn:hover {
-    background: #5a00cc;
     transform: translateY(-2px);
-    box-shadow: 0 0 20px rgba(112, 0, 255, 0.3);
+    box-shadow: 0 10px 20px rgba(112, 0, 255, 0.3);
+    filter: brightness(1.1);
+}
+
+.submitBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+@media (max-width: 960px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 120px;
+    }
+
+    .info {
+        width: 100%;
+        max-width: 600px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .infoItem {
+        flex: 1;
+        min-width: 250px;
+    }
 }
 
 @media (max-width: 768px) {
     .title {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     .form {
@@ -121,10 +144,5 @@
 
     .info {
         flex-direction: column;
-        align-items: center;
-    }
-
-    .infoItem {
-        width: 100%;
     }
 }

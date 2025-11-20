@@ -1,24 +1,62 @@
-.header {
-    padding: 120px 20px 60px;
+.hero {
+    padding: 150px 20px 80px;
     text-align: center;
     position: relative;
+    background: radial-gradient(circle at center, rgba(112, 0, 255, 0.1) 0%, transparent 70%);
 }
 
 .title {
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
     background: linear-gradient(to right, #fff, #aaa);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    letter-spacing: -2px;
 }
 
 .subtitle {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: var(--muted);
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
+    line-height: 1.6;
+}
+
+.philosophySection {
+    padding: 80px 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 80px;
+}
+
+.philosophyContent {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.philosophyIcon {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: 20px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.philosophyContent blockquote {
+    font-size: 2rem;
+    font-style: italic;
+    color: var(--foreground);
+    margin-bottom: 30px;
+    font-family: serif;
+}
+
+.philosophyContent p {
+    font-size: 1.1rem;
+    color: var(--muted);
+    line-height: 1.8;
 }
 
 .section {
@@ -29,9 +67,25 @@
 
 .sectionTitle {
     font-size: 2.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
     text-align: center;
     color: var(--foreground);
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sectionTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 2px;
 }
 
 .grid {
@@ -41,5 +95,27 @@
 }
 
 /* Timeline Styles Override/Adjustment if needed */
-/* Assuming Timeline component handles its own internal styles well, 
+/* Assuming Timeline component handles its own internal styles well,
    but we might need to ensure it fits the dark theme */
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+    }
+
+    .philosophyContent blockquote {
+        font-size: 1.5rem;
+    }
+}

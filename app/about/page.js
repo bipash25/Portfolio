@@ -12,12 +12,11 @@ export const metadata = {
 
 export default function About() {
     const timelineEvents = [
-        { year: '2015', title: 'First Encounter', description: 'Discovered the world of electronics through my mother\'s first Android smartphone.' },
-        { year: '2016', title: 'Multiplayer Magic', description: 'Learned about LAN multiplayer in Mini Militia, sparking curiosity about connectivity.' },
-        { year: '2017', title: 'The "Hack" Quest', description: 'Started researching game modification to get in-game items, discovering the concept of "hacking".' },
-        { year: '2020', title: 'Lockdown & Servers', description: 'Dove into Minecraft servers, Discord bots, and started learning Python.' },
-        { year: '2023', title: 'Web Development', description: 'Completed CodeWithHarry\'s Web Dev course and started building real projects.' },
-        { year: 'Present', title: 'Continuous Learning', description: 'Exploring Next.js, Cloud, and building a digital identity.' },
+        { year: '2015', title: 'The Spark', description: 'It started with my mother\'s Android phone. I was captivated by the idea that a device could hold a world of information.' },
+        { year: '2016', title: 'Gaming & Connection', description: 'Multiplayer games like Mini Militia taught me the power of connectivity. I wanted to know how we could play together, miles apart.' },
+        { year: '2020', title: 'The Builder\'s Mindset', description: 'Lockdown became my laboratory. I ran Minecraft servers, built Discord bots, and wrote my first lines of Python.' },
+        { year: '2023', title: 'Full Stack Journey', description: 'I committed to the craft. From CodeWithHarry\'s tutorials to building complex web apps, I turned curiosity into capability.' },
+        { year: 'Present', title: 'The Digital Philosopher', description: 'Now, I blend code with my love for science and philosophy, building digital experiences that matter.' },
     ];
 
     const skills = {
@@ -39,18 +38,30 @@ export default function About() {
 
     return (
         <main className={styles.main}>
-            <section className={styles.header}>
-                <h1 className={styles.title}>About Me</h1>
-                <p className={styles.subtitle}>My journey through code and curiosity.</p>
+            <section className={styles.hero}>
+                <h1 className={styles.title}>More Than Just Code</h1>
+                <p className={styles.subtitle}>I am a student of the universe, exploring the intersection of technology, science, and human thought.</p>
+            </section>
+
+            <section className={styles.philosophySection}>
+                <div className={styles.philosophyContent}>
+                    <FaAtom className={styles.philosophyIcon} />
+                    <blockquote>
+                        "The universe is written in the language of mathematics, but it is felt in the language of the soul."
+                    </blockquote>
+                    <p>
+                        My journey isn't just about syntax and algorithms. It's about understanding the fundamental laws that govern our reality—from the subatomic particles to the vastness of the cosmos—and applying that structured thinking to solve human problems.
+                    </p>
+                </div>
             </section>
 
             <section className={styles.section}>
-                <h2 className={styles.sectionTitle}>My Story</h2>
+                <h2 className={styles.sectionTitle}>My Origin Story</h2>
                 <Timeline events={timelineEvents} />
             </section>
 
             <section className={styles.section}>
-                <h2 className={styles.sectionTitle}>My Toolkit</h2>
+                <h2 className={styles.sectionTitle}>The Toolkit</h2>
                 <div className={styles.skillsContainer}>
                     <SkillGroup title="Languages" skills={skills.languages} />
                     <SkillGroup title="Frameworks" skills={skills.frameworks} />
@@ -59,22 +70,22 @@ export default function About() {
             </section>
 
             <section className={styles.section}>
-                <h2 className={styles.sectionTitle}>Beyond Code</h2>
+                <h2 className={styles.sectionTitle}>Beyond the Screen</h2>
                 <div className={styles.hobbiesGrid}>
                     <HobbyCard
-                        title="Science Enthusiast"
+                        title="Scientific Inquiry"
                         icon={<FaAtom />}
-                        description="Fascinated by the fundamental laws of the universe and scientific discovery."
+                        description="Diving deep into physics and astronomy. I believe understanding the 'why' is as important as the 'how'."
                     />
                     <HobbyCard
-                        title="Philosophical Thinker"
+                        title="Philosophy"
                         icon={<FaBrain />}
-                        description="Enjoy pondering deep questions about existence, consciousness, and society."
+                        description="Questioning existence, consciousness, and ethics. Technology without philosophy is a ship without a compass."
                     />
                     <HobbyCard
-                        title="Music & Singing"
+                        title="The Art of Sound"
                         icon={<FaMusic />}
-                        description="I love singing (even if I'm not a pro!) and exploring different genres of music."
+                        description="Singing is my escape. It's where logic meets emotion, creating a harmony that code alone cannot achieve."
                     />
                 </div>
             </section>

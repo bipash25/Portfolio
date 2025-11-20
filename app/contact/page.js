@@ -52,14 +52,14 @@ export default function Contact() {
                     <div className={styles.infoItem}>
                         <FaEnvelope className={styles.icon} />
                         <h3>Email Me</h3>
-                        <p>contact@bipro.dev</p>
-                        <p>bipro@bipro.dev</p>
+                        <a href="mailto:contact@bipro.dev">contact@bipro.dev</a>
+                        <a href="mailto:bipro@bipro.dev">bipro@bipro.dev</a>
                     </div>
                     <div className={styles.infoItem}>
                         <FaPaperPlane className={styles.icon} />
                         <h3>Socials</h3>
-                        <p>@the.bipro (Instagram)</p>
-                        <p>@theBIPRO (Telegram)</p>
+                        <a href="https://instagram.com/the.bipro" target="_blank" rel="noopener noreferrer">@the.bipro (Instagram)</a>
+                        <a href="https://t.me/theBIPRO" target="_blank" rel="noopener noreferrer">@theBIPRO (Telegram)</a>
                     </div>
                 </div>
 

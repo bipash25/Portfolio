@@ -1,21 +1,84 @@
-.header {
-    padding: 120px 20px 60px;
-    text-align: center;
-}
-
-.title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    background: linear-gradient(to right, #fff, #aaa);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 .subtitle {
     color: var(--muted);
     font-size: 1.2rem;
+}
+
+.controls {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.searchBar {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    font-size: 1.2rem;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 16px 16px 16px 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    color: var(--foreground);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 4px rgba(112, 0, 255, 0.1);
+}
+
+.tagCloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.tagBtn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--muted);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.tagBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--foreground);
+}
+
+.activeTag {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.activeTag:hover {
+    background: var(--primary);
+    filter: brightness(1.1);
 }
 
 .grid {
@@ -35,6 +98,7 @@
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
+    text-decoration: none;
 }
 
 .card:hover {
@@ -46,7 +110,6 @@
 .date {
     font-size: 0.85rem;
     color: var(--secondary);
-    margin-bottom: 1rem;
 }
 
 .blogTitle {
@@ -57,20 +120,14 @@
 }
 
 .excerpt {
-    color: var(--muted);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
+    color: var(--primary);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.readMore {
-    color: var(--foreground);
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.readMore:hover {
-    color: var(--secondary);
+.resetBtn:hover {
+    background: var(--primary);
+    color: white;
 }
