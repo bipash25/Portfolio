@@ -2,7 +2,8 @@ import dbConnect from '@/lib/db';
 import Blog from '@/models/Blog';
 import Link from 'next/link';
 import styles from './blogs.module.css';
-import { FaPlus, FaEdit, FaTrash } from 'react-icons/fa';
+import { FaPlus, FaEdit } from 'react-icons/fa';
+import DeleteBlogButton from '@/components/DeleteBlogButton';
 
 async function getBlogs() {
     await dbConnect();
@@ -35,10 +36,7 @@ export default async function AdminBlogs() {
                             <Link href={`/admin/blogs/${blog._id}`} className={styles.actionBtn}>
                                 <FaEdit />
                             </Link>
-                            {/* Delete button would need client component or form action */}
-                            <button className={`${styles.actionBtn} ${styles.deleteBtn}`}>
-                                <FaTrash />
-                            </button>
+                            <DeleteBlogButton id={blog._id.toString()} />
                         </div>
                     </div>
                 ))}
