@@ -1,44 +1,15 @@
 .card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 16px;
-    padding: 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 2.5rem;
     display: flex;
     flex-direction: column;
     height: 100%;
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
-}
-
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%);
-    opacity: 0;
-    transition: opacity 0.5s;
-    pointer-events: none;
-}
-
-.card:hover::before {
-    opacity: 1;
-}
-
-.card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 16px;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 
 .card::before {
@@ -59,16 +30,17 @@
 }
 
 .card:hover {
-    border-color: var(--primary);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 40px -10px rgba(112, 0, 255, 0.2);
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .titleGroup {
@@ -78,41 +50,47 @@
 }
 
 .title {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 700;
     color: var(--foreground);
     line-height: 1.2;
+    letter-spacing: -0.5px;
 }
 
 .languageBadge {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: var(--primary);
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    opacity: 0.8;
 }
 
 .links {
     display: flex;
-    gap: 12px;
+    gap: 15px;
 }
 
 .iconLink {
     color: var(--muted);
-    font-size: 1.2rem;
-    transition: color 0.2s ease;
+    font-size: 1.3rem;
+    transition: all 0.2s ease;
+    opacity: 0.7;
 }
 
 .iconLink:hover {
-    color: var(--secondary);
+    color: var(--foreground);
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 .description {
     color: var(--muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
     flex-grow: 1;
+    font-weight: 300;
 }
 
 .footer {
@@ -120,11 +98,13 @@
     justify-content: space-between;
     align-items: center;
     margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .stats {
     display: flex;
-    gap: 15px;
+    gap: 20px;
     font-size: 0.9rem;
     color: var(--muted);
 }
@@ -132,7 +112,7 @@
 .stat {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
 }
 
 .starIcon {
@@ -140,19 +120,20 @@
 }
 
 .forkIcon {
-    color: var(--foreground);
+    color: var(--muted);
 }
 
 .techStack {
     display: flex;
-    gap: 6px;
+    gap: 8px;
 }
 
 .tech {
-    font-size: 0.7rem;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 4px 10px;
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 6px 12px;
     border-radius: 50px;
     color: var(--muted);
     border: 1px solid rgba(255, 255, 255, 0.05);
+    font-weight: 500;
 }

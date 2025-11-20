@@ -1,43 +1,61 @@
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .filters {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .filterBtn {
-    padding: 0.5rem 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--card-border);
-    border-radius: 50px;
+    padding: 0.5rem 0;
+    background: transparent;
+    border: none;
     color: var(--muted);
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+}
+
+.filterBtn::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
 }
 
 .filterBtn:hover {
-    background: rgba(255, 255, 255, 0.1);
     color: var(--foreground);
 }
 
 .filterBtn.active {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
-    box-shadow: 0 0 15px var(--primary-glow);
+    color: var(--foreground);
+}
+
+.filterBtn.active::after {
+    width: 100%;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 2rem;
 }
 
@@ -45,10 +63,15 @@
     text-align: center;
     color: var(--muted);
     padding: 3rem;
+    font-size: 1.2rem;
 }
 
 @media (max-width: 768px) {
     .grid {
         grid-template-columns: 1fr;
+    }
+
+    .filters {
+        gap: 1rem;
     }
 }
