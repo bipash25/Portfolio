@@ -1,59 +1,55 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { FaGithub, FaTwitter, FaLinkedin, FaArrowDown } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 import styles from './Hero.module.css';
 
-export default function Hero() {
+const Hero = () => {
     return (
-        <section className={styles.hero}>
-            <div className={styles.container}>
+        <div className={styles.hero}>
+            {/* Background Glows */}
+            <div className={styles.glowOne}></div>
+            <div className={styles.glowTwo}></div>
+
+            <div className={styles.content}>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className={styles.content}
+                    transition={{ duration: 0.8 }}
                 >
-                    <span className={styles.greeting}>Hi, I'm</span>
-                    <h1 className={styles.title}>Biprodeep Nath</h1>
-                    <h2 className={styles.subtitle}>Student. Developer. Thinker.</h2>
-                    <p className={styles.description}>
-                        I craft digital experiences with code and curiosity.
-                        Exploring the intersection of technology and creativity.
-                    </p>
+                    <h1 className={styles.title}>
+                        I'm <span className={styles.highlight}>BIPRO</span>.
+                    </h1>
+                    <h2 className={styles.subtitle}>
+                        Student. Developer. Thinker.
+                    </h2>
+                </motion.div>
 
-                    <div className={styles.ctaGroup}>
-                        <Link href="/projects" className={styles.primaryBtn}>
-                            View Work
-                        </Link>
-                        <Link href="/contact" className={styles.secondaryBtn}>
-                            Contact Me
-                        </Link>
-                    </div>
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.8 }}
+                    className={styles.description}
+                >
+                    I turn complex ideas into digital reality. Welcome to my corner of the internet, where I showcase my journey in code, science, and philosophy.
+                </motion.p>
 
-                    <div className={styles.socials}>
-                        <a href="https://github.com/bipash25" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-                            <FaGithub />
-                        </a>
-                        <a href="https://twitter.com/theBIPRO" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-                            <FaTwitter />
-                        </a>
-                        <a href="https://linkedin.com/in/biprodeep-nath" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-                            <FaLinkedin />
-                        </a>
-                    </div>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6, duration: 0.8 }}
+                    className={styles.buttons}
+                >
+                    <Link href="/projects" className={styles.primaryBtn}>
+                        View Projects
+                    </Link>
+                    <Link href="/contact" className={styles.secondaryBtn}>
+                        Contact Me
+                    </Link>
                 </motion.div>
             </div>
-
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1, duration: 1 }}
-                className={styles.scrollIndicator}
-            >
-                <FaArrowDown />
-            </motion.div>
-        </section>
+        </div>
     );
-}
+};
+
+export default Hero;
