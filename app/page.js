@@ -7,6 +7,8 @@ import Link from 'next/link';
 import styles from './home.module.css';
 import { FaArrowRight } from 'react-icons/fa';
 
+import TechMarquee from '@/components/TechMarquee';
+
 export const dynamic = 'force-dynamic';
 
 async function getData() {
@@ -38,6 +40,7 @@ export default async function Home() {
     return (
         <main>
             <Hero />
+            <TechMarquee />
 
             {/* Featured Projects Section */}
             <section className={styles.section}>

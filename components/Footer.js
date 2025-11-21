@@ -1,10 +1,14 @@
 import styles from './Footer.module.css';
 import { FaGithub, FaInstagram, FaTelegram, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import SpotifyNowPlaying from './SpotifyNowPlaying';
 
 const Footer = () => {
     return (
         <footer className={styles.footer}>
             <div className={styles.container}>
+                <div className={styles.topSection}>
+                    <SpotifyNowPlaying />
+                </div>
                 <div className={styles.socials}>
                     <a href="https://github.com/bipash25" target="_blank" rel="noopener noreferrer" className={styles.icon}>
                         <FaGithub />

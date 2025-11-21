@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import styles from './Navbar.module.css';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -61,6 +62,9 @@ const Navbar = () => {
                             <Link href="/contact" className={styles.navLink} onClick={toggleMenu}>
                                 Contact
                             </Link>
+                        </li>
+                        <li className={styles.navItem}>
+                            <ThemeToggle />
                         </li>
                     </ul>
                 </div>

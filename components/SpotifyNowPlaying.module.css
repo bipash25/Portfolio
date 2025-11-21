@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.container:hover {
+    color: #1db954;
+}
+
+.icon {
+    font-size: 1.5rem;
+    color: #1db954;
+}
+
+.playing {
+    animation: pulse 2s infinite;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.title {
+    font-weight: 600;
+    color: var(--foreground);
+}
+
+.artist {
+    font-size: 0.8rem;
+}
+
+.text {
+    font-size: 0.9rem;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
