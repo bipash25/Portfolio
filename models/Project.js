@@ -6,6 +6,11 @@ const ProjectSchema = new mongoose.Schema({
         required: [true, 'Please provide a name for this project.'],
         maxlength: [60, 'Name cannot be more than 60 characters'],
     },
+    slug: {
+        type: String,
+        unique: true,
+        sparse: true,
+    },
     description: {
         type: String,
         required: [true, 'Please provide a description for this project.'],

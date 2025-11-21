@@ -1,8 +1,6 @@
-'use client';
-
 import { useState, useEffect } from 'react';
-import { FaSun, FaMoon } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiSun, FiMoon } from 'react-icons/fi';
 
 export default function ThemeToggle() {
     const [theme, setTheme] = useState('dark');
@@ -22,7 +20,7 @@ export default function ThemeToggle() {
 
     return (
         <motion.button
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.1, rotate: 15 }}
             whileTap={{ scale: 0.9 }}
             onClick={toggleTheme}
             style={{
@@ -30,18 +28,26 @@ export default function ThemeToggle() {
                 border: 'none',
                 cursor: 'pointer',
                 color: 'var(--foreground)',
-                fontSize: '1.2rem',
+                fontSize: '1.5rem',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 padding: '8px',
-                borderRadius: '50%',
-                backgroundColor: 'var(--card-bg)',
-                border: '1px solid var(--card-border)'
+                outline: 'none'
             }}
             aria-label="Toggle Theme"
         >
-            {theme === 'dark' ? <FaSun /> : <FaMoon />}
+            <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                    key={theme}
+                    initial={{ y: -20, opacity: 0, rotate: -90 }}
+                    animate={{ y: 0, opacity: 1, rotate: 0 }}
+                    exit={{ y: 20, opacity: 0, rotate: 90 }}
+                    transition={{ duration: 0.2 }}
+                >
+                    {theme === 'dark' ? <FiSun /> : <FiMoon />}
+                </motion.div>
+            </AnimatePresence>
         </motion.button>
     );
 }

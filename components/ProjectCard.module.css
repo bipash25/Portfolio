@@ -1,3 +1,10 @@
+.cardLink {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
 .card {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -69,6 +76,8 @@
 .links {
     display: flex;
     gap: 15px;
+    z-index: 2;
+    position: relative;
 }
 
 .iconLink {

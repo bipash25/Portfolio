@@ -4,37 +4,37 @@
     left: 0;
     width: 100%;
     height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     z-index: 1000;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     background: transparent;
-    border-bottom: 1px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.navbar.floating {
+/* Scrolled State (Floating Pill) */
+.navbar.scrolled {
     top: 20px;
     width: 90%;
-    max-width: 1200px;
-    left: 50%;
-    transform: translateX(-50%);
+    max-width: 1000px;
     height: 60px;
+    border-radius: 50px;
     background: rgba(10, 10, 10, 0.8);
     backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 50px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    /* Center horizontally */
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .container {
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 30px;
     height: 100%;
 }
 
@@ -43,19 +43,19 @@
     font-weight: 800;
     color: var(--foreground);
     text-decoration: none;
-    letter-spacing: -0.5px;
+    letter-spacing: -1px;
+    z-index: 1001;
 }
 
 .dot {
     color: var(--primary);
 }
 
-.navMenu {
+/* Desktop Menu */
+.desktopMenu {
     display: flex;
-    gap: 30px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    align-items: center;
+    gap: 2rem;
 }
 
 .navLink {
@@ -64,81 +64,119 @@
     font-size: 0.95rem;
     font-weight: 500;
     transition: color 0.3s ease;
+    position: relative;
 }
 
-.navLink:hover {
+.navLink:hover,
+.activeLink {
     color: var(--foreground);
 }
 
-.mobileIcon {
+/* Underline effect for active/hover */
+.navLink::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.navLink:hover::after,
+.activeLink::after {
+    width: 100%;
+}
+
+.themeToggleWrapper {
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Mobile Toggle */
+.mobileToggle {
     display: none;
     font-size: 1.5rem;
     color: var(--foreground);
     cursor: pointer;
+    z-index: 1001;
 }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .navbar.floating {
-        width: 95%;
-        top: 10px;
-    }
+/* Mobile Menu */
+.mobileMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
 
-    .mobileIcon {
-        display: block;
-    }
+/* Adjust mobile menu for scrolled state */
+.navbar.scrolled .mobileMenu {
+    top: 70px;
+    /* Below the floating pill */
+    width: 90%;
+    /* Match pill width */
+    left: 50%;
+    transform: translateX(-50%) !important;
+    /* Override framer motion x if needed, but framer handles y */
+    border-radius: 20px;
+    margin-top: 10px;
+}
 
-    .navMenu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-        padding: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease-in-out, padding 0.4s ease;
-        border-radius: 0 0 20px 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
+.mobileNavLink {
+    color: var(--foreground);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    width: 100%;
+    text-align: center;
+    transition: background 0.2s;
+}
 
-    .navbar.floating .navMenu {
-        width: 100%;
-        left: 0;
-        border-radius: 20px;
-        margin-top: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }
+.mobileNavLink:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--primary);
+}
 
-    .navMenu.active {
-        max-height: 400px;
-        /* Adjust based on content */
-        padding: 20px 0;
-    }
-
-    .navItem {
-        width: 100%;
-        text-align: center;
-    }
-
-    .navLink {
-        display: block;
-        padding: 15px 0;
-        font-size: 1.1rem;
-    }
-
-    .navLink:hover {
-        background: rgba(255, 255, 255, 0.05);
-        color: var(--primary);
-    }
+.mobileThemeToggle {
+    margin-top: 10px;
 }
 
 .overlay {
-    display: none;
-    /* Not needed for top-down dropdown usually, but can keep if desired */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    backdrop-filter: blur(2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .desktopMenu {
+        display: none;
+    }
+
+    .mobileToggle {
+        display: block;
+    }
+
+    .navbar.scrolled {
+        width: 95%;
+        top: 10px;
+    }
 }

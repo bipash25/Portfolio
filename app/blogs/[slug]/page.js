@@ -4,6 +4,9 @@ import styles from './blog-post.module.css';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { FaArrowLeft } from 'react-icons/fa';
+import CommentSection from '@/components/CommentSection';
+import ReactMarkdown from 'react-markdown';
+import CodeBlock from '@/components/CodeBlock';
 
 export async function generateMetadata({ params }) {
     await dbConnect();
@@ -55,12 +58,30 @@ export default async function BlogPost({ params }) {
                     </header>
 
                     <div className={styles.content}>
-                        {/* In a real app, use a markdown parser like react-markdown here */}
-                        {blog.content.split('\n').map((paragraph, index) => (
-                            <p key={index}>{paragraph}</p>
-                        ))}
+                        <ReactMarkdown
+                            components={{
+                                code({ node, inline, className, children, ...props }) {
+                                    const match = /language-(\w+)/.exec(className || '');
+                                    return !inline && match ? (
+                                        <CodeBlock
+                                            language={match[1]}
+                                            value={String(children).replace(/\n$/, '')}
+                                            {...props}
+                                        />
+                                    ) : (
+                                        <code className={className} {...props}>
+                                            {children}
+                                        </code>
+                                    );
+                                }
+                            }}
+                        >
+                            {blog.content}
+                        </ReactMarkdown>
                     </div>
                 </article>
+
+                <CommentSection blogId={blog._id} />
             </div>
         </main>
     );

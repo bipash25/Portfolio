@@ -3,6 +3,7 @@ import styles from '../snippets.module.css';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { FaArrowLeft } from 'react-icons/fa';
+import CodeBlock from '@/components/CodeBlock';
 
 export async function generateMetadata({ params }) {
     const { id } = await params;
@@ -37,9 +38,7 @@ export default async function SnippetDetail({ params }) {
                 <p className={styles.detailSummary}>{snippet.summary}</p>
 
                 <div className={styles.codeWrapper}>
-                    <pre className={styles.codeBlock}>
-                        <code>{snippet.code}</code>
-                    </pre>
+                    <CodeBlock language={snippet.language} value={snippet.code} />
                 </div>
             </div>
         </main>
